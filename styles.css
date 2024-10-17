@@ -1,58 +1,116 @@
+/* 
+ Program:   Simple Sample Registration Form Styles 
+ Author:    Jasmine Elmiloudi
+ Date Modified: 2024-10-17
+ Description: This CSS file styles the registration form 
+              and its elements, including layout, colors, 
+              and responsiveness. 
+*/
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
-    margin: 20px;
+    background-color: #f5f5f5; /* Light grey background */
+    color: #2e7d32; /* Dark green text */
 }
 
 header {
     text-align: center;
-    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #388e3c; /* Darker green for header background */
+    color: white;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+#logo-container img {
+    height: 80px;
+}
+
+form {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #e8f5e9; /* Light green form background */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 table {
-    margin: 0 auto;
-    border-spacing: 10px;
+    width: 100%;
 }
 
-input[type="text"],
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #1b5e20; /* Darker green for labels */
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #4caf50; /* Green border */
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #2e7d32; /* Dark green text */
+    background-color: white;
+}
+
+input[type="password"],
 input[type="email"],
 input[type="tel"],
 input[type="date"],
-input[type="password"],
-input[type="range"],
-select,
-textarea {
-    width: 100%;
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+input[type="text"] {
+    background-color: #f9f9f9; /* Slight grey input background */
 }
 
+input[type="submit"],
 button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
+    width: 100%;
+    padding: 15px;
+    background-color: #4caf50; /* Green button */
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    color: white;
     cursor: pointer;
-    margin-top: 10px;
+    transition: background-color 0.3s ease;
 }
 
+input[type="submit"]:hover,
 button:hover {
-    background-color: #0056b3;
+    background-color: #388e3c; /* Dark green button hover */
 }
 
-#reviewSection {
-    margin-top: 30px;
+fieldset {
+    border: 2px solid #66bb6a; /* Lighter green border for fieldsets */
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+legend {
+    font-size: 1.2rem;
+    color: #2e7d32; /* Dark green for legend */
+}
+
+#reviewArea {
+    margin-top: 20px;
     padding: 20px;
-    background-color: #e0e0e0;
-    border-radius: 8px;
-    text-align: left;
-    display: block;
+    background-color: #d7ccc8; /* Light greyish brown for review area */
+    border: 2px solid #388e3c; /* Dark green border */
+    border-radius: 10px;
 }
 
-#reviewContent p {
-    margin: 5px 0;
+#salaryValue {
+    font-weight: bold;
+    color: #2e7d32;
 }
+
 
