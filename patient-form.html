@@ -1,140 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homework 2 - Patient Registration Form</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to the CSS file -->
-    <script defer src="script.js"></script> <!-- Link to the JavaScript file -->
+    <title>ADJECTA Medical - Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts-1.js" defer></script>
 </head>
-
 <body>
+    <!-- Header with ADJECTA Medical and Logo -->
     <header>
-        <h1>Patient Registration Form</h1>
-        <p id="currentDate"></p> <!-- Current date will go here -->
+        <div id="logo-container" style="text-align: center;">
+            <img src="logo.png" alt="ADJECTA Medical Logo" style="height: 100px;">
+        </div>
+        <h1>ADJECTA Medical</h1>
+        <p>Welcome to ADJECTA Medical! Please fill in the form to register.</p>
+        <p id="currentDate"></p>
     </header>
 
-    <main>
-        <!-- Registration Form -->
-        <form id="registrationForm" onsubmit="return validateForm()">
-            <table>
-                <!-- Block 1: Name and Date of Birth -->
-                <tr>
-                    <td>First Name:</td>
-                    <td><input type="text" id="firstName" name="firstName" pattern="^[A-Za-z'-]{1,30}$" title="Letters, apostrophes, or dashes only (1-30 characters)" required></td>
-                </tr>
-                <tr>
-                    <td>Middle Initial:</td>
-                    <td><input type="text" id="middleInitial" name="middleInitial" pattern="^[A-Za-z]?$" title="Only one letter or blank" maxlength="1"></td>
-                </tr>
-                <tr>
-                    <td>Last Name:</td>
-                    <td><input type="text" id="lastName" name="lastName" pattern="^[A-Za-z0-9'-]{1,30}$" title="Letters, apostrophes, numbers, and dashes only (1-30 characters)" required></td>
-                </tr>
-                <tr>
-                    <td>Date of Birth:</td>
-                    <td><input type="date" id="dob" name="dob" title="Date must be between 1900 and today" required></td>
-                </tr>
+    <!-- Registration Form -->
+    <form id="registrationForm">
+        <table>
+            <tr>
+                <td>
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" pattern="[A-Za-z'-]{1,30}" required title="Enter your first name (1-30 characters, letters, apostrophes, and dashes only)">
+                </td>
+                <td>
+                    <label for="middleInitial">Middle Initial:</label>
+                    <input type="text" id="middleInitial" name="middleInitial" maxlength="1" pattern="[A-Za-z]" title="Enter a single letter">
+                </td>
+                <td>
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" pattern="[A-Za-z'-]{1,30}" required title="Enter your last name (1-30 characters, letters, apostrophes, and dashes only)">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" min="1904-01-01" max="2023-10-16" required title="Enter a valid date of birth (not in the future or more than 120 years ago)">
+                </td>
+                <td>
+                    <label for="id">Social Security / ID:</label>
+                    <input type="password" id="id" name="id" pattern="\d{3}-\d{2}-\d{4}" required title="Enter a valid SSN (format: 123-45-6789)">
+                </td>
+            </tr>
 
-                <!-- Block 2: Contact Info -->
-                <tr>
-                    <td>Email:</td>
-                    <td><input type="email" id="email" name="email" title="Format: name@domain.com" required></td>
-                </tr>
-                <tr>
-                    <td>Phone Number:</td>
-                    <td><input type="tel" id="phone" name="phone" pattern="\d{3}-\d{3}-\d{4}" title="Phone format: 000-000-0000" required></td>
-                </tr>
+            <!-- Contact Info Block -->
+            <tr>
+                <td colspan="2">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required title="Enter a valid email address">
+                </td>
+                <td>
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required title="Enter a valid phone number (000-000-0000)">
+                </td>
+            </tr>
 
-                <!-- Block 3: Address -->
-                <tr>
-                    <td>Address Line 1:</td>
-                    <td><input type="text" id="address1" name="address1" pattern=".{2,30}" title="2-30 characters" required></td>
-                </tr>
-                <tr>
-                    <td>Address Line 2:</td>
-                    <td><input type="text" id="address2" name="address2" pattern=".{2,30}" title="2-30 characters"></td>
-                </tr>
-                <tr>
-                    <td>City:</td>
-                    <td><input type="text" id="city" name="city" pattern=".{2,30}" title="2-30 characters" required></td>
-                </tr>
-                <tr>
-                    <td>State:</td>
-                    <td>
-                        <select id="state" name="state" title="Select your state" required>
-                            <option value="">Select</option>
-                            <!-- Include states dynamically from an external file (optional) -->
-                            <option value="TX">TX</option>
-                            <option value="CA">CA</option>
-                            <option value="NY">NY</option>
-                            <!-- ... more options here ... -->
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Zip Code:</td>
-                    <td><input type="text" id="zip" name="zip" pattern="^\d{5}(-\d{4})?$" title="5 digits or zip+4 format (00000-0000)" required></td>
-                </tr>
+            <!-- Address Block -->
+            <tr>
+                <td colspan="2">
+                    <label for="address1">Address Line 1:</label>
+                    <input type="text" id="address1" name="address1" maxlength="30" required title="Enter your address (2-30 characters)">
+                </td>
+                <td>
+                    <label for="address2">Address Line 2:</label>
+                    <input type="text" id="address2" name="address2" maxlength="30" title="Enter your address (optional, 2-30 characters)">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city" maxlength="30" required title="Enter your city (2-30 characters)">
+                </td>
+                <td>
+                    <label for="state">State:</label>
+                    <select id="state" name="state" required>
+                        <option value="">Select a State</option>
+                        <option value="TX">TX</option>
+                        <!-- Include other state options here -->
+                    </select>
+                </td>
+                <td>
+                    <label for="zip">Zip Code:</label>
+                    <input type="text" id="zip" name="zip" pattern="\d{5}(-\d{4})?" required title="Enter a valid zip code (5 digits or zip+4)">
+                </td>
+            </tr>
 
-                <!-- Block 4: Health Info -->
-                <tr>
-                    <td>Check all that apply:</td>
-                    <td>
-                        <input type="checkbox" id="chickenPox" name="chickenPox"> Chicken Pox
-                        <input type="checkbox" id="measles" name="measles"> Measles
-                        <input type="checkbox" id="covid" name="covid"> Covid-19
-                    </td>
-                </tr>
-                <tr>
-                    <td>Vaccination Status:</td>
-                    <td>
-                        <input type="radio" id="vaccineYes" name="vaccine" value="yes"> Yes
-                        <input type="radio" id="vaccineNo" name="vaccine" value="no"> No
-                        <input type="radio" id="vaccineUnsure" name="vaccine" value="unsure"> Unsure
-                    </td>
-                </tr>
+            <!-- Choices Block -->
+            <tr>
+                <td colspan="3">
+                    <fieldset>
+                        <legend>Medical History</legend>
+                        <label><input type="checkbox" name="illness" value="chickenpox"> Chickenpox</label>
+                        <label><input type="checkbox" name="illness" value="measles"> Measles</label>
+                        <label><input type="checkbox" name="illness" value="covid19"> Covid-19</label>
+                        <!-- Add other illnesses as needed -->
+                    </fieldset>
+                </td>
+            </tr>
 
-                <!-- Block 5: Other Info -->
-                <tr>
-                    <td>Desired Salary:</td>
-                    <td>
-                        <input type="range" id="salary" name="salary" min="20000" max="200000" step="1000" value="100000">
-                        <span id="salaryValue">$100,000</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Symptoms:</td>
-                    <td><textarea id="symptoms" name="symptoms" rows="4" cols="30" title="Optional"></textarea></td>
-                </tr>
-                <tr>
-                    <td>User ID:</td>
-                    <td><input type="text" id="userID" name="userID" pattern="^[A-Za-z][A-Za-z0-9_-]{4,29}$" title="5-30 characters, no spaces, no special characters except - or _"></td>
-                </tr>
-                <tr>
-                    <td>Password:</td>
-                    <td><input type="password" id="password" name="password" required title="Must be 8-30 characters, with 1 uppercase, 1 number, and 1 special character."></td>
-                </tr>
-                <tr>
-                    <td>Confirm Password:</td>
-                    <td><input type="password" id="confirmPassword" name="confirmPassword" required title="Please confirm your password"></td>
-                </tr>
-            </table>
+            <!-- Radio Button Choices -->
+            <tr>
+                <td colspan="3">
+                    <fieldset>
+                        <legend>Vaccination Status</legend>
+                        <label><input type="radio" name="vaccinated" value="yes" required> Yes</label>
+                        <label><input type="radio" name="vaccinated" value="no"> No</label>
+                        <label><input type="radio" name="vaccinated" value="unsure"> Unsure</label>
+                    </fieldset>
+                </td>
+            </tr>
 
-            <!-- Buttons for Submit and Review -->
-            <button type="button" onclick="reviewForm()">Review</button>
-            <button type="submit">Submit</button>
-        </form>
+            <!-- Slider for Desired Salary -->
+            <tr>
+                <td colspan="3">
+                    <label for="salary">Desired Salary ($20,000 - $200,000):</label>
+                    <input type="range" id="salary" name="salary" min="20000" max="200000" step="1000" oninput="document.getElementById('salaryValue').textContent=this.value;">
+                    <span id="salaryValue">110000</span>
+                </td>
+            </tr>
 
-        <!-- Review Section -->
-        <section id="reviewSection" style="display:none;">
-            <h2>Review Your Information</h2>
-            <div id="reviewContent"></div>
-        </section>
-    </main>
+            <!-- User ID and Password -->
+            <tr>
+                <td colspan="2">
+                    <label for="userId">User ID:</label>
+                    <input type="text" id="userId" name="userId" pattern="^[a-zA-Z][a-zA-Z0-9_-]{4,29}$" required title="5-30 characters, letters, numbers, dashes, underscores. Must start with a letter.">
+                </td>
+                <td>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,30}" required title="8-30 characters, 1 uppercase, 1 number, 1 special character">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <label for="confirmPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required title="Passwords must match">
+                </td>
+            </tr>
+
+            <!-- Buttons for Review and Submit -->
+            <tr>
+                <td colspan="3">
+                    <button type="button" onclick="reviewForm()">Review</button>
+                    <button type="submit">Submit</button>
+                </td>
+            </tr>
+
+        </table>
+    </form>
+
+    <!-- Review Area -->
+    <div id="reviewArea"></div>
+
 </body>
-
 </html>
 
 
