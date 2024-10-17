@@ -1,67 +1,58 @@
- /* 
-Program name: style.css 
-Author: Jasmine El Miloudi 
-Date created: September 12, 2024 
-Date last edited: September 16, 2024 
-Version: 1.0 
-Description: CSS for the Patient Form page 
-*/
-
-/* Basic styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     color: #333;
+    margin: 20px;
 }
 
-/* Banner styling */
-.banner {
-    background-color: #4CAF50;
-    color: white;
+header {
     text-align: center;
-    padding: 20px;
+    margin-bottom: 20px;
 }
 
-.banner h1 {
-    margin: 0;
-}
-
-.banner img {
-    vertical-align: middle;
-}
-
-/* Table styling */
 table {
     margin: 0 auto;
-    border-spacing: 15px;
-    width: 80%;
+    border-spacing: 10px;
 }
 
-label {
-    font-weight: bold;
-}
-
-/* Form inputs styling */
 input[type="text"],
-input[type="password"],
 input[type="email"],
-textarea,
-select {
+input[type="tel"],
+input[type="date"],
+input[type="password"],
+input[type="range"],
+select,
+textarea {
     width: 100%;
     padding: 8px;
-    margin: 5px 0;
-    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid #ccc;
 }
 
-input[type="submit"],
-input[type="reset"] {
-    background-color: #4CAF50;
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
     color: white;
     border: none;
-    padding: 10px 20px;
+    border-radius: 4px;
     cursor: pointer;
-    margin: 10px 5px;
+    margin-top: 10px;
 }
 
-input[type="submit"]:hover,
-input[type="reset"]:hover
+button:hover {
+    background-color: #0056b3;
+}
+
+#reviewSection {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    text-align: left;
+    display: block;
+}
+
+#reviewContent p {
+    margin: 5px 0;
+}
+
