@@ -1,28 +1,66 @@
 /* 
  Program:   Simple Sample Registration Form Styles 
  Author:    Jasmine Elmiloudi
- Date Modified: 2024-10-17
+ Date Modified: 2024-10-20
  Description: This CSS file styles the registration form 
               and its elements, including layout, colors, 
               and responsiveness. 
 */
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5; /* Light grey background */
-    color: #2e7d32; /* Dark green text */
-}
 
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; 
+    z-index: 1000;
+    background-color: #fff;
+    padding: 10px 20px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
     text-align: center;
-    padding: 20px;
-    background-color: #388e3c; /* Darker green for header background */
-    color: white;
+    overflow: hidden;
 }
 
-h1 {
-    font-size: 2.5rem;
+
+header h1 {
+    font-size: 24px; 
+    margin: 0; 
+    line-height: 1.2; 
+    word-wrap: break-word; 
+    white-space: normal; 
+
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 20px; 
+    }
 }
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #2e7d32;
+    margin-top: 120px; 
+}
+
+
+.form-container {
+    margin-top: 120px; 
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f8f8;
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); 
+}
+
 
 p {
     font-size: 1.2rem;
@@ -36,7 +74,7 @@ form {
     width: 80%;
     margin: 20px auto;
     padding: 20px;
-    background-color: #e8f5e9; /* Light green form background */
+    background-color: #e8f5e9; 
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -49,18 +87,15 @@ label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: #1b5e20; /* Darker green for labels */
+    color: #1b5e20; 
 }
 
 input, select, textarea {
-    width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #4caf50; /* Green border */
+    margin-bottom: 15px;
+    width: calc(100% - 20px); 
+    border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 1rem;
-    color: #2e7d32; /* Dark green text */
-    background-color: white;
 }
 
 input[type="password"],
@@ -68,49 +103,58 @@ input[type="email"],
 input[type="tel"],
 input[type="date"],
 input[type="text"] {
-    background-color: #f9f9f9; /* Slight grey input background */
+    background-color: #f9f9f9; 
 }
 
 input[type="submit"],
 button {
-    width: 100%;
-    padding: 15px;
-    background-color: #4caf50; /* Green button */
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
+    background-color: #388e3c; 
     color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 input[type="submit"]:hover,
 button:hover {
-    background-color: #388e3c; /* Dark green button hover */
-}
+    background-color: #2e7d32; 
 
 fieldset {
-    border: 2px solid #66bb6a; /* Lighter green border for fieldsets */
+    border: 2px solid #66bb6a; 
     padding: 10px;
     margin-bottom: 20px;
 }
 
 legend {
     font-size: 1.2rem;
-    color: #2e7d32; /* Dark green for legend */
+    color: #2e7d32; 
 }
 
 #reviewArea {
     margin-top: 20px;
     padding: 20px;
-    background-color: #d7ccc8; /* Light greyish brown for review area */
-    border: 2px solid #388e3c; /* Dark green border */
+    background-color: #d7ccc8; 
+    border: 2px solid #388e3c; 
     border-radius: 10px;
 }
 
 #salaryValue {
     font-weight: bold;
     color: #2e7d32;
+}
+iframe {
+    width: 100%;
+    height: 500px; 
+    border: none;
+    margin-top: 20px;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 5px;
 }
 
 
